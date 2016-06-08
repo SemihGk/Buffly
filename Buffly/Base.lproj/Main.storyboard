@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5B4-IE-QRE">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="ffo-CE-wbH">
+            <objects>
+                <navigationController id="5B4-IE-QRE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kvf-QG-oXN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Gw9-hQ-FZV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lbn-2W-52O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1181" y="357"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Buffly" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +33,61 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxg-cJ-8Ui">
+                                <rect key="frame" x="508" y="555" width="92" height="45"/>
+                                <color key="backgroundColor" red="1" green="0.31406490694587041" blue="0.60907858111764401" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="RuN-q8-sSQ"/>
+                                    <constraint firstAttribute="height" constant="45" id="fJr-dB-ylA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                <state key="normal" title="Fly">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickFlyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nIa-bL-nT8"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="268" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S7m-eN-mLB">
+                                <rect key="frame" x="0.0" y="555" width="509" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="509" id="8wv-oo-coX"/>
+                                    <constraint firstAttribute="height" constant="45" id="joc-na-oAW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5EP-d3-uXR">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="CRH-Tr-sq3"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="RCI-GA-yV5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5EP-d3-uXR" secondAttribute="bottom" constant="44" id="9HW-wQ-bRm"/>
+                            <constraint firstItem="5EP-d3-uXR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ETl-DW-S5l"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nxg-cJ-8Ui" secondAttribute="bottom" id="HjP-lx-0xd"/>
+                            <constraint firstItem="S7m-eN-mLB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="JSC-ts-OcU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5EP-d3-uXR" secondAttribute="trailing" constant="-20" id="QZp-Gm-uee"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nxg-cJ-8Ui" secondAttribute="trailing" constant="-20" id="cTr-7I-eQL"/>
+                            <constraint firstItem="5EP-d3-uXR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="e2M-gL-1sL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="S7m-eN-mLB" secondAttribute="bottom" id="eaZ-IW-Raa"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="uxW-Ad-MJ4"/>
+                    <connections>
+                        <outlet property="messageField" destination="S7m-eN-mLB" id="7pE-x0-m2b"/>
+                        <outlet property="tableView" destination="5EP-d3-uXR" id="s5u-6L-ouL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-387" y="357"/>
         </scene>
     </scenes>
 </document>
