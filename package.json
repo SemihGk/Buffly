@@ -10,7 +10,9 @@
     "start": "npm install && node index.js"
   },
   "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "latest",
     "socket.io": "latest",
-    "express": "latest"
+    "path": "latest"
   }
 }

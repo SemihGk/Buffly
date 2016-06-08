@@ -1,13 +1,21 @@
 var app = require('express')(),
   http = require('http').Server(app),
+  path = require('path'),
+  bodyParser = require('body-parser'),
   io = require('socket.io')(http);
 
-http.listen(process.env.PORT || 5000, function() {
-  console.log('Lets the chat begin!');
-});
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
+});
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+app.listen(process.env.PORT || 5000, function() {
+  console.log('Lets the chat begin!');
 });
 
 function User(socket) {
