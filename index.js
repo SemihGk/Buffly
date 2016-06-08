@@ -6,6 +6,10 @@ http.listen(process.env.PORT || 5000, function() {
   console.log('Lets the chat begin!');
 });
 
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/index.html'));
+});
+
 function User(socket) {
   var self = this;
   self.socket = socket;

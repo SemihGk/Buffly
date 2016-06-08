@@ -12,7 +12,7 @@ import SocketIOClientSwift
 class SocketUtility: NSObject { // might need object c classes
     static let socketUtility = SocketUtility() // make it public variable with static
     
-    var socket: SocketIOClient = SocketIOClient(socketURL: NSURL(string: "http://localhost:3000")!) // crete client socket
+    var socket: SocketIOClient = SocketIOClient(socketURL: NSURL(string: "https://buffly.herokuapp.com/")!) // crete client socket
     
     override init() { // because of nsobject inheritation
         super.init()
