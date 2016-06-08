@@ -10,7 +10,7 @@
     "start": "npm install && node index.js"
   },
   "dependencies": {
-      "socket.io": "latest",
-      "express": "latest",
+    "socket.io": "latest",
+    "express": "latest"
   }
 }
