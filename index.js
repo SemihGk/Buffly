@@ -2,8 +2,8 @@ var app = require('express')(),
   http = require('http').Server(app),
   io = require('socket.io')(http);
 
-http.listen(process.env.PORT || 3000, function() {
-  console.log('Lets make better lovers!');
+http.listen(process.env.PORT || 5000, function() {
+  console.log('Lets the chat begin!');
 });
 
 function User(socket) {
@@ -19,7 +19,7 @@ User.prototype.joinChat = function(chat) {
 function Chat() {
   var self = this;
   self.users = [];
-  self.io = require('socket.io')(app);
+  self.io = io;
   self.addHandlers();
 }
 
